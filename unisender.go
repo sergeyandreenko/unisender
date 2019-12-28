@@ -282,8 +282,8 @@ func (u *UniSender) IsContactInList(email string, listIDs ...int64) *contacts.Is
 // or several lists, and also allows you to add/change the values ​​of additional fields and labels.
 //
 // See https://www.unisender.com/en/support/api/contacts/subscribe/
-func (u *UniSender) Subscribe() *contacts.SubscribeRequest {
-	return contacts.Subscribe(u.request())
+func (u *UniSender) Subscribe(listIDs ...int64) *contacts.SubscribeRequest {
+	return contacts.Subscribe(u.request(), listIDs...)
 }
 
 // Unsubscribe returns request that unsubscribes the contact email or phone number from one or several lists.
