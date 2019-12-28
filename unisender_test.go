@@ -224,7 +224,7 @@ func TestUnisender(t *testing.T) {
 		"importContacts": func(usndr *unisender.UniSender) {
 			_, _ = usndr.ImportContacts(contacts.NewImportContactsCollection()).Execute()
 		},
-		"isContactInList": func(usndr *unisender.UniSender) {
+		"isContactInLists": func(usndr *unisender.UniSender) {
 			_, _ = usndr.IsContactInList("").Execute()
 		},
 		"subscribe": func(usndr *unisender.UniSender) {

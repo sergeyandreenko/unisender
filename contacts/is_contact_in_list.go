@@ -26,7 +26,7 @@ func (r *IsContactInListRequest) ConditionAnd() *IsContactInListRequest {
 
 // Execute sends request to UniSender API and returns result.
 func (r *IsContactInListRequest) Execute() (res bool, err error) {
-	err = r.request.Execute("isContactInList", &res)
+	err = r.request.Execute("isContactInLists", &res)
 	return
 }
 
