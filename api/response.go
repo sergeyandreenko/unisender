@@ -1,6 +1,7 @@
 package api
 
 import (
+	"encoding/json"
 	"errors"
 )
 
@@ -9,6 +10,25 @@ type Response struct {
 	Result interface{} `json:"result,omitempty"`
 	Error  string      `json:"error,omitempty"`
 	Code   string      `json:"code,omitempty"`
+}
+
+type jsonResponse struct {
+	Result json.RawMessage `json:"result,omitempty"`
+	Error  string          `json:"error,omitempty"`
+	Code   string          `json:"code,omitempty"`
+}
+
+func (r *Response) UnmarshalJSON(data []byte) error {
+	var j jsonResponse
+	if err := json.Unmarshal(data, &j); err != nil {
+		return err
+	}
+	r.Error = j.Error
+	r.Code = j.Code
+	if !r.IsError() {
+		return json.Unmarshal(j.Result, &r.Result)
+	}
+	return nil
 }
 
 // IsError returns true if response has error.

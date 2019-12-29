@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"reflect"
 )
 
 // Endpoint API endpoint.
@@ -58,7 +57,7 @@ func (r *Request) Execute(method string, v interface{}) (err error) {
 		return
 	}
 
-	var response Response
+	response := Response{Result: v}
 
 	if err = json.Unmarshal(body, &response); err != nil {
 		return
@@ -66,10 +65,6 @@ func (r *Request) Execute(method string, v interface{}) (err error) {
 
 	if err = response.Err(); err != nil {
 		return
-	}
-
-	if response.Result != nil && reflect.TypeOf(v) == reflect.TypeOf(response.Result) {
-		reflect.ValueOf(v).Set(reflect.ValueOf(response.Result))
 	}
 
 	return

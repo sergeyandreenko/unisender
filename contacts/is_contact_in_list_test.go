@@ -13,6 +13,7 @@ import (
 	"github.com/alexeyco/unisender/api"
 	"github.com/alexeyco/unisender/contacts"
 	"github.com/alexeyco/unisender/test"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestIsContactInListRequest_ConditionOr(t *testing.T) {
@@ -96,7 +97,6 @@ func TestIsContactInListRequest_Execute(t *testing.T) {
 	var givenCondition string
 
 	expectedResult := true
-	var givenResult bool
 
 	req := test.NewRequest(func(req *http.Request) (res *http.Response, err error) {
 		givenEmail = req.FormValue("email")
@@ -142,5 +142,36 @@ func TestIsContactInListRequest_Execute(t *testing.T) {
 
 	if expectedResult != givenResult {
 		t.Fatal("Results should be equal")
+	}
+}
+
+// Testing HTTP 200 respose with error body:
+// {
+//    "error": "YE131008-12 [Invalid address contact \"invalid_email_string\"]",
+//    "code": "unspecified",
+//    "result": ""
+// }
+func TestIsContactInListRequest_Execute_Error(t *testing.T) {
+	const errorMessge = "YE131008-12 [Invalid address contact \"invalid_email_string\"]"
+	req := test.NewRequest(func(req *http.Request) (res *http.Response, err error) {
+		result := api.Response{
+			Error:  errorMessge,
+			Code:   "unspecified",
+			Result: "",
+		}
+		response, err := json.Marshal(&result)
+		if err != nil {
+			return nil, err
+		}
+		return &http.Response{
+			StatusCode: http.StatusOK,
+			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+		}, nil
+	})
+	res, err := contacts.IsContactInList(req, "invalid_email_string", 1).
+		ConditionAnd().
+		Execute()
+	if assert.EqualError(t, err, errorMessge) {
+		assert.Equal(t, false, res)
 	}
 }
