@@ -8,9 +8,20 @@ import (
 )
 
 // SendEmailResult result of sendEmail request.
-type SendEmailResult struct {
-	EmailID int64 `json:"email_id"`
-}
+type (
+	SendEmailResult struct {
+		Index      int64            `json:"index"`
+		EmailID    string           `json:"id"`
+		Email      string           `json:"email"`
+		AcceptDate string           `json:"acceptDate"`
+		Errors     []SendEmailError `json:"errors,omitempty"`
+	}
+	SendEmailError struct {
+		Code       string `json:"code"`
+		Message    string `json:"message"`
+		AcceptDate string `json:"accept_date"`
+	}
+)
 
 // SendEmailRequest request to send a single individual email without personalization and with limited possibilities
 // to obtain statistics.
@@ -185,12 +196,23 @@ func (r *SendEmailRequest) MetaData(name, value string) *SendEmailRequest {
 
 // Execute sends request to UniSender API and returns result.
 func (r *SendEmailRequest) Execute() (emailID int64, err error) {
-	var result SendEmailResult
+	var result []SendEmailResult
 	if err = r.request.Execute("sendEmail", &result); err != nil {
 		return
 	}
 
-	emailID = result.EmailID
+	if len(result) > 0 {
+		if len(result[0].Errors) > 0 {
+			err = fmt.Errorf("error: [%s] %s", result[0].Errors[0].Code, result[0].Errors[0].Message)
+		} else {
+			emailID, err = strconv.ParseInt(result[0].EmailID, 10, 64)
+			if err != nil {
+				return
+			}
+		}
+	} else {
+		err = fmt.Errorf("unexpected response: %s", err)
+	}
 
 	return
 }
