@@ -1,4 +1,4 @@
-module github.com/alexeyco/unisender
+module github.com/sergeyandreenko/unisender
 
 go 1.13
 
