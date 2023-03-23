@@ -1,6 +1,6 @@
 package common
 
-import "github.com/alexeyco/unisender/api"
+import "github.com/sergeyandreenko/unisender/api"
 
 // CurrencyRate currency rate.
 type CurrencyRate struct {

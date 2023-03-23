@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // SendEmailResult result of sendEmail request.

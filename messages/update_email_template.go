@@ -3,7 +3,7 @@ package messages
 import (
 	"strconv"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // UpdateEmailTemplateRequest request to create an email template for a mass campaign.

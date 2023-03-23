@@ -3,7 +3,7 @@ package partners
 import (
 	"strconv"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // GetSenderDomainListResultDomain domain info.

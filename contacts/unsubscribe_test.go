@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/alexeyco/unisender/contacts"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender/contacts"
+	"github.com/sergeyandreenko/unisender/test"
 )
 
 func TestUnsubscribeRequest_ContactTypeEmail(t *testing.T) {

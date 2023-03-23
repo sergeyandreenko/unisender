@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/alexeyco/unisender"
-	"github.com/alexeyco/unisender/contacts"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender"
+	"github.com/sergeyandreenko/unisender/contacts"
+	"github.com/sergeyandreenko/unisender/test"
 )
 
 func TestUniSender_ApiKey(t *testing.T) {

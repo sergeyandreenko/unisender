@@ -10,9 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/alexeyco/unisender/api"
-	"github.com/alexeyco/unisender/messages"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender/api"
+	"github.com/sergeyandreenko/unisender/messages"
+	"github.com/sergeyandreenko/unisender/test"
 )
 
 func TestCreateSMSMessageRequest_Body(t *testing.T) {

@@ -1,7 +1,7 @@
 package contacts
 
 import (
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 	"time"
 )
 

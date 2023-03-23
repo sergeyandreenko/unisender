@@ -1,16 +1,16 @@
 package unisender
 
 import (
-	"github.com/alexeyco/unisender/partners"
+	"github.com/sergeyandreenko/unisender/partners"
 	"net/http"
 	"sync"
 
-	"github.com/alexeyco/unisender/api"
-	"github.com/alexeyco/unisender/campaigns"
-	"github.com/alexeyco/unisender/common"
-	"github.com/alexeyco/unisender/contacts"
-	"github.com/alexeyco/unisender/lists"
-	"github.com/alexeyco/unisender/messages"
+	"github.com/sergeyandreenko/unisender/api"
+	"github.com/sergeyandreenko/unisender/campaigns"
+	"github.com/sergeyandreenko/unisender/common"
+	"github.com/sergeyandreenko/unisender/contacts"
+	"github.com/sergeyandreenko/unisender/lists"
+	"github.com/sergeyandreenko/unisender/messages"
 )
 
 // LanguageDefault default API response language.
@@ -80,10 +80,10 @@ func (u *UniSender) SetLogger(logger api.Logger) *UniSender {
 // See: https://www.unisender.com/en/support/api/partners/cancel-campaign/
 //
 // A campaign can be canceled if it has one of the following statuses:
-//   * "Planned",
-//   * "Scheduled" (scheduled),
-//   * "Considered by the administration" (censor_hold),
-//   * "Waiting for approval" (waits_censor).
+//   - "Planned",
+//   - "Scheduled" (scheduled),
+//   - "Considered by the administration" (censor_hold),
+//   - "Waiting for approval" (waits_censor).
 //
 // The distribution status can be obtained using the getCampaignStatus method.
 //
@@ -124,28 +124,29 @@ func (u *UniSender) GetCampaigns() *campaigns.GetCampaignsRequest {
 // GetCampaignStatus returns request to find out the status of the campaign.
 //
 // Campaign status possible options:
-//   waits_censor   — campaign is waiting to be checked.
 //
-//   censor_hold    — it is actually equivalent to waits_censor: considered by the administrator, but delayed
-//                    for further check.
+//	waits_censor   — campaign is waiting to be checked.
 //
-//   declined       — the campaign has been rejected by administrator.
+//	censor_hold    — it is actually equivalent to waits_censor: considered by the administrator, but delayed
+//	                 for further check.
 //
-//   waits_schedule — the task for placing the list in the queue has been received and the campaign is waiting
-//                    to be placed in the queue. As a rule, the campaign stays in this status one or two minutes
-//                    before changing its status on scheduled.
+//	declined       — the campaign has been rejected by administrator.
 //
-//   scheduled      — scheduled to be launched. It will be launched as soon as the sending time comes.
+//	waits_schedule — the task for placing the list in the queue has been received and the campaign is waiting
+//	                 to be placed in the queue. As a rule, the campaign stays in this status one or two minutes
+//	                 before changing its status on scheduled.
 //
-//   in_progress    — messages are being sent.
+//	scheduled      — scheduled to be launched. It will be launched as soon as the sending time comes.
 //
-//   analysed       — all messages have been sent, the results are being analyzed.
+//	in_progress    — messages are being sent.
 //
-//   completed      — all messages have been sent and analysis of the results is completed.
+//	analysed       — all messages have been sent, the results are being analyzed.
 //
-//   stopped        — the campaign is paused.
+//	completed      — all messages have been sent and analysis of the results is completed.
 //
-//   canceled       — the campaign is canceled (usually due to the lack of money or at the request of the user).
+//	stopped        — the campaign is paused.
+//
+//	canceled       — the campaign is canceled (usually due to the lack of money or at the request of the user).
 //
 // See: https://www.unisender.com/en/support/api/partners/getcampaignstatus/
 func (u *UniSender) GetCampaignStatus(campaignID int64) *campaigns.GetCampaignStatusRequest {
@@ -348,129 +349,130 @@ func (u *UniSender) UpdateOptInEmail(listID int64) *lists.UpdateOptInEmailReques
 // i.e. only for a month.
 //
 // Status possible options:
-//   not_sent                      – The message has not been processed yet.
 //
-//   ok_sent                       – The message has been sent, it is in the intermediate status until the receipt
-//                                   of the delivery/non-delivery response.
+//	not_sent                      – The message has not been processed yet.
 //
-//   ok_delivered                  – The message has been delivered. It may change to ‘ok_read’, ‘ok_link_visited’,
-//                                   ‘ok_unsubscribed’ or ‘ok_spam_folder’.
+//	ok_sent                       – The message has been sent, it is in the intermediate status until the receipt
+//	                                of the delivery/non-delivery response.
 //
-//   ok_read                       – The message has been delivered and its reading has been registered. It may change
-//                                   to ‘ok_link_visited’, ‘ok_unsubscribed’ or ‘ok_spam_folder’.
+//	ok_delivered                  – The message has been delivered. It may change to ‘ok_read’, ‘ok_link_visited’,
+//	                                ‘ok_unsubscribed’ or ‘ok_spam_folder’.
 //
-//   ok_fbl                        – The message has been delivered but placed in the spam folder by the recipient.
-//                                   Unfortunately, only some of the mail services report such information, so usually
-//                                   you won’t receive a lot of responses with such status.
+//	ok_read                       – The message has been delivered and its reading has been registered. It may change
+//	                                to ‘ok_link_visited’, ‘ok_unsubscribed’ or ‘ok_spam_folder’.
 //
-//   ok_link_visited               – The message has been delivered, read, and one of the links has been clicked through.
-//                                   It may change to ‘ok_unsubscribed’ or ‘ok_spam_folder’.
+//	ok_fbl                        – The message has been delivered but placed in the spam folder by the recipient.
+//	                                Unfortunately, only some of the mail services report such information, so usually
+//	                                you won’t receive a lot of responses with such status.
 //
-//   ok_unsubscribed               – The message has been delivered and read, but the user unsubscribed using the link
-//                                   in the letter. The status is final.
+//	ok_link_visited               – The message has been delivered, read, and one of the links has been clicked through.
+//	                                It may change to ‘ok_unsubscribed’ or ‘ok_spam_folder’.
 //
-//   err_blacklisted               – The message has been rejected due to blacklisting.
+//	ok_unsubscribed               – The message has been delivered and read, but the user unsubscribed using the link
+//	                                in the letter. The status is final.
 //
-//   err_will_retry                – One or more delivery attempts have been unsuccessful, but attempts continue.
-//                                   The status is not final.
+//	err_blacklisted               – The message has been rejected due to blacklisting.
 //
-//   err_resend                    – Actually, it is equivalent to err_will_retry with some minor internal features.
+//	err_will_retry                – One or more delivery attempts have been unsuccessful, but attempts continue.
+//	                                The status is not final.
 //
-//   err_internal                  – Internal failure. The letter needs to be re-sent. The status is final.
+//	err_resend                    – Actually, it is equivalent to err_will_retry with some minor internal features.
 //
-//   err_user_unknown              – The address does not exist, delivery failed. The status is final.
+//	err_internal                  – Internal failure. The letter needs to be re-sent. The status is final.
 //
-//   err_user_inactive             – The address used to exist before, but now it has been disabled. Delivery failed.
-//                                   The status is final.
+//	err_user_unknown              – The address does not exist, delivery failed. The status is final.
 //
-//   err_mailbox_discarded         – The recipient’s mailbox has been deleted. The status is final.
+//	err_user_inactive             – The address used to exist before, but now it has been disabled. Delivery failed.
+//	                                The status is final.
 //
-//   err_mailbox_full              – The recipient’s mailbox is full. The status is final.
+//	err_mailbox_discarded         – The recipient’s mailbox has been deleted. The status is final.
 //
-//   err_no_dns                    – There is no record or an incorrect record in DNS.
+//	err_mailbox_full              – The recipient’s mailbox is full. The status is final.
 //
-//   err_no_smtp                   – There is an entry in DNS, but there is no smtp server.
+//	err_no_dns                    – There is no record or an incorrect record in DNS.
 //
-//   err_domain_inactive           – The domain does not accept mail or does not exist. The status is final.
+//	err_no_smtp                   – There is an entry in DNS, but there is no smtp server.
 //
-//   err_destination_misconfigured – The domain does not accept mail due to incorrect settings on the recipient’s side,
-//                                   and the server’s response contains information about a cause that can be fixed
-//                                   (for example, an inoperative blacklist is used, etc.).
+//	err_domain_inactive           – The domain does not accept mail or does not exist. The status is final.
 //
-//   err_spam_rejected             – The message was rejected by the server as a spam.
+//	err_destination_misconfigured – The domain does not accept mail due to incorrect settings on the recipient’s side,
+//	                                and the server’s response contains information about a cause that can be fixed
+//	                                (for example, an inoperative blacklist is used, etc.).
 //
-//   err_too_large                 – The letter exceeds the size allowed by the recipient’s server. Also, the reason
-//                                   may be a rejection of the letter by the recipient’s server due to an unacceptable
-//                                   attachment type. For example, .exe.
+//	err_spam_rejected             – The message was rejected by the server as a spam.
 //
-//   err_giveup                    – This status is assigned to messages with the err_will_retry, err_resend statuses
-//                                   after expiration of the retry period.
+//	err_too_large                 – The letter exceeds the size allowed by the recipient’s server. Also, the reason
+//	                                may be a rejection of the letter by the recipient’s server due to an unacceptable
+//	                                attachment type. For example, .exe.
 //
-//   err_spam_removed              – Sending has been canceled because the campaign has been clocked as a spam.
-//                                   The status is not final, it can be changed to not_sent, delayed
-//                                   or err_spam_may_retry after negotiations with the recipient’s mail service.
+//	err_giveup                    – This status is assigned to messages with the err_will_retry, err_resend statuses
+//	                                after expiration of the retry period.
 //
-//   err_spam_may_retry            – It is equivalent to err_spam_rejected, but you can re-send the message
-//                                   by generating a new similar letter.
+//	err_spam_removed              – Sending has been canceled because the campaign has been clocked as a spam.
+//	                                The status is not final, it can be changed to not_sent, delayed
+//	                                or err_spam_may_retry after negotiations with the recipient’s mail service.
 //
-//   ok_spam_folder                – The letter has been delivered, but the recipient’s server placed it
-//                                   in the Spam folder. The status is final.
+//	err_spam_may_retry            – It is equivalent to err_spam_rejected, but you can re-send the message
+//	                                by generating a new similar letter.
 //
-//   err_delivery_failed           – Delivery failed due to other reasons. The status is final.
+//	ok_spam_folder                – The letter has been delivered, but the recipient’s server placed it
+//	                                in the Spam folder. The status is final.
 //
-//   err_will_retry                – One or more delivery attempts have been unsuccessful, but attempts continue.
-//                                   The status is not final.
+//	err_delivery_failed           – Delivery failed due to other reasons. The status is final.
 //
-//   err_skip_letter               – Sending has been canceled because the email address is not available
-//                                   (except for cases of err_unsubscribed and err_not_allowed).
+//	err_will_retry                – One or more delivery attempts have been unsuccessful, but attempts continue.
+//	                                The status is not final.
 //
-//   err_spam_skipped              – Sending has been canceled because the campaign has been blocked as a spam.
-//                                   The result is not final, it can be changed to not_sent, delayed
-//                                   or err_spam_may_retry after negotiations with the recipient’s mail service.
+//	err_skip_letter               – Sending has been canceled because the email address is not available
+//	                                (except for cases of err_unsubscribed and err_not_allowed).
 //
-//   err_unsubscribed              – The letter has not been sent as the address to which it was tried to be sent
-//                                   has previously unsubscribed. You can mark this address as unsubscribed
-//                                   in your database and not send messages to it any more. The status is final.
+//	err_spam_skipped              – Sending has been canceled because the campaign has been blocked as a spam.
+//	                                The result is not final, it can be changed to not_sent, delayed
+//	                                or err_spam_may_retry after negotiations with the recipient’s mail service.
 //
-//   err_src_invalid               – Invalid sender’s email address. It is used if the “invalid sender’s email”
-//                                   was discovered not at the stage of accepting the task and checking the parameters,
-//                                   but at a later stage when the things to be sent are checked in detail.
-//                                   The status is final.
+//	err_unsubscribed              – The letter has not been sent as the address to which it was tried to be sent
+//	                                has previously unsubscribed. You can mark this address as unsubscribed
+//	                                in your database and not send messages to it any more. The status is final.
 //
-//   err_dest_invalid              – Invalid recipient’s email address. It is used if the “invalid recipient’s email”
-//                                   was discovered not at the stage of accepting the task and checking the parameters,
-//                                   but at a later stage when the things to be sent are checked in detail.
-//                                   The status is final.
+//	err_src_invalid               – Invalid sender’s email address. It is used if the “invalid sender’s email”
+//	                                was discovered not at the stage of accepting the task and checking the parameters,
+//	                                but at a later stage when the things to be sent are checked in detail.
+//	                                The status is final.
 //
-//   err_not_allowed               – Sending has been canceled because technical support staff blocked the campaign,
-//                                   or because of the recipient address or your account is blocked.
-//                                   The status is final.
+//	err_dest_invalid              – Invalid recipient’s email address. It is used if the “invalid recipient’s email”
+//	                                was discovered not at the stage of accepting the task and checking the parameters,
+//	                                but at a later stage when the things to be sent are checked in detail.
+//	                                The status is final.
 //
-//   err_over_quota                – Sending has been canceled due to insufficiency of funds on the account or due
-//                                   to an excess of the tariff.
+//	err_not_allowed               – Sending has been canceled because technical support staff blocked the campaign,
+//	                                or because of the recipient address or your account is blocked.
+//	                                The status is final.
 //
-//   err_not_available             – The address to which you have tried to send the letter is not available
-//                                   (i.e., previous sending to this address resulted in a response
-//                                   like “the address does not exist” or “block for spam” from the server).
-//                                   Theoretically, the availability of the address can be restored in a few days
-//                                   or weeks, so you may not eliminate it completely from the list of potential
-//                                   recipients. The status is final.
+//	err_over_quota                – Sending has been canceled due to insufficiency of funds on the account or due
+//	                                to an excess of the tariff.
 //
-//   err_unreachable               – Sending has been canceled because the address is not available, but, in contrast
-//                                   to the err_not_available status, the availability of the address
-//                                   will not be restored. The status is final.
+//	err_not_available             – The address to which you have tried to send the letter is not available
+//	                                (i.e., previous sending to this address resulted in a response
+//	                                like “the address does not exist” or “block for spam” from the server).
+//	                                Theoretically, the availability of the address can be restored in a few days
+//	                                or weeks, so you may not eliminate it completely from the list of potential
+//	                                recipients. The status is final.
 //
-//   err_lost                      – The letter wasn’t sent due to inconsistency of its parts (for example,
-//                                   a link to the image in attachments is transferred in the letter body,
-//                                   but the image itself is not transferred in the attachments), or it has been lost
-//                                   because of the failure on our side. The sender needs to re-send the letter
-//                                   on his own, since the original has not been saved. The status is final.
+//	err_unreachable               – Sending has been canceled because the address is not available, but, in contrast
+//	                                to the err_not_available status, the availability of the address
+//	                                will not be restored. The status is final.
 //
-//   skip_dup_unreachable          – The address is unavailable, sending failed. The status is final.
+//	err_lost                      – The letter wasn’t sent due to inconsistency of its parts (for example,
+//	                                a link to the image in attachments is transferred in the letter body,
+//	                                but the image itself is not transferred in the attachments), or it has been lost
+//	                                because of the failure on our side. The sender needs to re-send the letter
+//	                                on his own, since the original has not been saved. The status is final.
 //
-//   skip_dup_temp_unreachable     – The address is temporarily unavailable. Sending failed. The status is final.
+//	skip_dup_unreachable          – The address is unavailable, sending failed. The status is final.
 //
-//   skip_dup_mailbox_full         – The recipient’s mailbox is full. The status is final.
+//	skip_dup_temp_unreachable     – The address is temporarily unavailable. Sending failed. The status is final.
+//
+//	skip_dup_mailbox_full         – The recipient’s mailbox is full. The status is final.
 //
 // See: https://www.unisender.com/en/support/api/messages/checkemail/
 func (u *UniSender) CheckEmail(emailIDs ...int64) *messages.CheckEmailRequest {
@@ -480,32 +482,33 @@ func (u *UniSender) CheckEmail(emailIDs ...int64) *messages.CheckEmailRequest {
 // CheckSMS returns request to check the delivery status of sms sent using the sendSMS method.
 //
 // Status possible options:
-//   not_sent            – The message has not been sent yet, and is waiting to be sent. The status will
-//                         be changed after sending.
 //
-//   ok_sent             – The message has been sent, but the delivery status is still unknown. The status is temporary
-//                         and may change.
+//	not_sent            – The message has not been sent yet, and is waiting to be sent. The status will
+//	                      be changed after sending.
 //
-//   ok_delivered        – The message has been delivered. The status is final.
+//	ok_sent             – The message has been sent, but the delivery status is still unknown. The status is temporary
+//	                      and may change.
 //
-//   err_src_invalid     – The delivery is not possible, the sender is set incorrectly. The status is final.
+//	ok_delivered        – The message has been delivered. The status is final.
 //
-//   err_dest_invalid    – The delivery is not possible, a wrong number is indicated. The status is final.
+//	err_src_invalid     – The delivery is not possible, the sender is set incorrectly. The status is final.
 //
-//   err_skip_letter     – The delivery is impossible because the status of the phone number was changed
-//                         in the process of sending, or the phone number has been removed from the list,
-//                         or the letter has been deleted. The status is final.
+//	err_dest_invalid    – The delivery is not possible, a wrong number is indicated. The status is final.
 //
-//   err_not_allowed     – The delivery is not possible, this communications service provider is not serviced.
-//                         The status is final.
+//	err_skip_letter     – The delivery is impossible because the status of the phone number was changed
+//	                      in the process of sending, or the phone number has been removed from the list,
+//	                      or the letter has been deleted. The status is final.
 //
-//   err_delivery_failed – The delivery failed — usually because of indication of a formally correct,
-//                         but non-existent number, or because the phone is turned off. The status is final.
+//	err_not_allowed     – The delivery is not possible, this communications service provider is not serviced.
+//	                      The status is final.
 //
-//   err_lost            – The message has been lost, and the sender needs to re-send the message on his own,
-//                         since the original has not been saved. The status is final.
+//	err_delivery_failed – The delivery failed — usually because of indication of a formally correct,
+//	                      but non-existent number, or because the phone is turned off. The status is final.
 //
-//   err_internal        – Internal failure. The message needs to be re-sent. The status is final.
+//	err_lost            – The message has been lost, and the sender needs to re-send the message on his own,
+//	                      since the original has not been saved. The status is final.
+//
+//	err_internal        – Internal failure. The message needs to be re-sent. The status is final.
 //
 // See: https://www.unisender.com/en/support/api/partners/check-sms/
 func (u *UniSender) CheckSMS(smsID int64) *messages.CheckSMSRequest {

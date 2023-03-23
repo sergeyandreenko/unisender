@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/alexeyco/unisender/messages"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender/messages"
+	"github.com/sergeyandreenko/unisender/test"
 )
 
 func TestDeleteTemplateRequest_Execute(t *testing.T) {

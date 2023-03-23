@@ -10,9 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/alexeyco/unisender/api"
-	"github.com/alexeyco/unisender/contacts"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender/api"
+	"github.com/sergeyandreenko/unisender/contacts"
+	"github.com/sergeyandreenko/unisender/test"
 )
 
 func TestExportContactsRequest_NotifyUrl(t *testing.T) {

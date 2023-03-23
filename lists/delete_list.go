@@ -3,7 +3,7 @@ package lists
 import (
 	"strconv"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // DeleteListRequest request to delete a list.

@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/alexeyco/unisender/lists"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender/lists"
+	"github.com/sergeyandreenko/unisender/test"
 )
 
 func TestUpdateOptInEmailRequest_SenderName(t *testing.T) {

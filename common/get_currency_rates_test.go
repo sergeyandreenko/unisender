@@ -8,9 +8,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/alexeyco/unisender/api"
-	"github.com/alexeyco/unisender/common"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender/api"
+	"github.com/sergeyandreenko/unisender/common"
+	"github.com/sergeyandreenko/unisender/test"
 )
 
 func TestGetCurrencyRatesRequest_Execute(t *testing.T) {

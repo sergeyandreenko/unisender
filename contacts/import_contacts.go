@@ -3,7 +3,7 @@ package contacts
 import (
 	"fmt"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // ImportContactsResultLogMessage importContacts log messages.

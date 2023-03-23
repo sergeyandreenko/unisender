@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // ListTemplatesResult message record.

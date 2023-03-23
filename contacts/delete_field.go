@@ -3,7 +3,7 @@ package contacts
 import (
 	"strconv"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // DeleteFieldRequest request to delete a user field.

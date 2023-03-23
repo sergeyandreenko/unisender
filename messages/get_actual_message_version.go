@@ -3,7 +3,7 @@ package messages
 import (
 	"strconv"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // GetActualMessageVersionResult actual message version.

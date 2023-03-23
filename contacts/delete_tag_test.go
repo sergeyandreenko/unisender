@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/alexeyco/unisender/contacts"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender/contacts"
+	"github.com/sergeyandreenko/unisender/test"
 )
 
 func TestDeleteTagRequest_Execute(t *testing.T) {

@@ -10,9 +10,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/alexeyco/unisender/api"
-	"github.com/alexeyco/unisender/contacts"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender/api"
+	"github.com/sergeyandreenko/unisender/contacts"
+	"github.com/sergeyandreenko/unisender/test"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -146,11 +146,12 @@ func TestIsContactInListRequest_Execute(t *testing.T) {
 }
 
 // Testing HTTP 200 respose with error body:
-// {
-//    "error": "YE131008-12 [Invalid address contact \"invalid_email_string\"]",
-//    "code": "unspecified",
-//    "result": ""
-// }
+//
+//	{
+//	   "error": "YE131008-12 [Invalid address contact \"invalid_email_string\"]",
+//	   "code": "unspecified",
+//	   "result": ""
+//	}
 func TestIsContactInListRequest_Execute_Error(t *testing.T) {
 	const errorMessge = "YE131008-12 [Invalid address contact \"invalid_email_string\"]"
 	req := test.NewRequest(func(req *http.Request) (res *http.Response, err error) {

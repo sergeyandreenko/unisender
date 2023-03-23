@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/alexeyco/unisender/api"
-	"github.com/alexeyco/unisender/campaigns"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender/api"
+	"github.com/sergeyandreenko/unisender/campaigns"
+	"github.com/sergeyandreenko/unisender/test"
 )
 
 func TestGetCampaignsRequest_From(t *testing.T) {

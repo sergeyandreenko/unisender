@@ -3,7 +3,7 @@ package contacts
 import (
 	"strconv"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // UpdateFieldResult result with updated user field ID.

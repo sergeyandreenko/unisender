@@ -3,7 +3,7 @@ package lists
 import (
 	"strconv"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // UpdateListRequest request to change campaign list properties.

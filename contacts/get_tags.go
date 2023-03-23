@@ -1,6 +1,6 @@
 package contacts
 
-import "github.com/alexeyco/unisender/api"
+import "github.com/sergeyandreenko/unisender/api"
 
 // GetTagsResult user tag.
 type GetTagsResult struct {

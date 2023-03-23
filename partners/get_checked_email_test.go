@@ -8,9 +8,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/alexeyco/unisender/api"
-	"github.com/alexeyco/unisender/partners"
-	"github.com/alexeyco/unisender/test"
+	"github.com/sergeyandreenko/unisender/api"
+	"github.com/sergeyandreenko/unisender/partners"
+	"github.com/sergeyandreenko/unisender/test"
 )
 
 func TestGetCheckedEmailRequest_Email(t *testing.T) {

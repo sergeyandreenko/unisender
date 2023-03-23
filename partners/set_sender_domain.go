@@ -1,6 +1,6 @@
 package partners
 
-import "github.com/alexeyco/unisender/api"
+import "github.com/sergeyandreenko/unisender/api"
 
 // SetSenderDomainResult result of setSenderDomain request.
 type SetSenderDomainResult struct {

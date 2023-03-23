@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 type roundTripper struct {

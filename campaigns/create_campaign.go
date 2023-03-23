@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/alexeyco/unisender/api"
+	"github.com/sergeyandreenko/unisender/api"
 )
 
 // CreateCampaignResult result of createCampaign request.

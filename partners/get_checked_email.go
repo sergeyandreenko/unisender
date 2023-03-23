@@ -1,6 +1,6 @@
 package partners
 
-import "github.com/alexeyco/unisender/api"
+import "github.com/sergeyandreenko/unisender/api"
 
 // GetCheckedEmailResponse sender info.
 type GetCheckedEmailResponse struct {

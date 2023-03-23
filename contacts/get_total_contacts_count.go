@@ -1,6 +1,6 @@
 package contacts
 
-import "github.com/alexeyco/unisender/api"
+import "github.com/sergeyandreenko/unisender/api"
 
 // GetTotalContactsCountResult response of getTotalContactsCount request.
 type GetTotalContactsCountResult struct {
