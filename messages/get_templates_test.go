@@ -3,7 +3,6 @@ package messages_test
 import (
 	"bytes"
 	"encoding/json"
-	"io/ioutil"
 	"net/http"
 	"reflect"
 	"strconv"
@@ -32,7 +31,7 @@ func TestGetTemplatesRequest_TypeUser(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -66,7 +65,7 @@ func TestGetTemplatesRequest_TypeSystem(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -100,7 +99,7 @@ func TestGetTemplatesRequest_From(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -134,7 +133,7 @@ func TestGetTemplatesRequest_To(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -168,7 +167,7 @@ func TestGetTemplatesRequest_Limit(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -202,7 +201,7 @@ func TestGetTemplatesRequest_Offset(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -232,7 +231,7 @@ func TestGetTemplatesRequest_Execute(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 

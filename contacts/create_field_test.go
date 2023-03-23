@@ -3,7 +3,6 @@ package contacts_test
 import (
 	"bytes"
 	"encoding/json"
-	"io/ioutil"
 	"net/http"
 	"testing"
 
@@ -29,7 +28,7 @@ func TestCreateFieldRequest_TypeString(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -63,7 +62,7 @@ func TestCreateFieldRequest_TypeText(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -97,7 +96,7 @@ func TestCreateFieldRequest_TypeNumber(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -131,7 +130,7 @@ func TestCreateFieldRequest_TypeDate(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -165,7 +164,7 @@ func TestCreateFieldRequest_TypeBool(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -202,7 +201,7 @@ func TestCreateFieldRequest_Execute(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 

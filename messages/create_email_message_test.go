@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strconv"
 	"testing"
@@ -33,7 +33,7 @@ func TestCreateEmailMessageRequest_SenderName(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -69,7 +69,7 @@ func TestCreateEmailMessageRequest_SenderEmail(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -105,7 +105,7 @@ func TestCreateEmailMessageRequest_Subject(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -141,7 +141,7 @@ func TestCreateEmailMessageRequest_Body(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -177,7 +177,7 @@ func TestCreateEmailMessageRequest_BodyText(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -213,7 +213,7 @@ func TestCreateEmailMessageRequest_BodyRaw(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -249,7 +249,7 @@ func TestCreateEmailMessageRequest_GenerateText(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -285,7 +285,7 @@ func TestCreateEmailMessageRequest_MessageFormatBlock(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -321,7 +321,7 @@ func TestCreateEmailMessageRequest_MessageFormatRawHTML(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -357,7 +357,7 @@ func TestCreateEmailMessageRequest_MessageFormatText(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -393,7 +393,7 @@ func TestCreateEmailMessageRequest_Tag(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -430,7 +430,7 @@ func TestCreateEmailMessageRequest_Attachment(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -466,7 +466,7 @@ func TestCreateEmailMessageRequest_LangDA(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -502,7 +502,7 @@ func TestCreateEmailMessageRequest_LangDE(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -538,7 +538,7 @@ func TestCreateEmailMessageRequest_LangES(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -574,7 +574,7 @@ func TestCreateEmailMessageRequest_LangFR(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -610,7 +610,7 @@ func TestCreateEmailMessageRequest_LangNL(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -646,7 +646,7 @@ func TestCreateEmailMessageRequest_LangPL(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -682,7 +682,7 @@ func TestCreateEmailMessageRequest_LangPT(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -718,7 +718,7 @@ func TestCreateEmailMessageRequest_LangTR(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -754,7 +754,7 @@ func TestCreateEmailMessageRequest_TemplateID(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -790,7 +790,7 @@ func TestCreateEmailMessageRequest_SystemTemplateID(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -826,7 +826,7 @@ func TestCreateEmailMessageRequest_WrapTypeSkip(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -862,7 +862,7 @@ func TestCreateEmailMessageRequest_WrapTypeRight(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -898,7 +898,7 @@ func TestCreateEmailMessageRequest_WrapTypeLeft(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -934,7 +934,7 @@ func TestCreateEmailMessageRequest_WrapTypeCenter(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -971,7 +971,7 @@ func TestCreateEmailMessageRequest_Execute(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 

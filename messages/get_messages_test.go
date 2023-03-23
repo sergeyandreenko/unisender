@@ -3,7 +3,6 @@ package messages_test
 import (
 	"bytes"
 	"encoding/json"
-	"io/ioutil"
 	"net/http"
 	"reflect"
 	"strconv"
@@ -32,7 +31,7 @@ func TestGetMessagesRequest_From(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -66,7 +65,7 @@ func TestGetMessagesRequest_To(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -100,7 +99,7 @@ func TestGetMessagesRequest_Limit(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -134,7 +133,7 @@ func TestGetMessagesRequest_Offset(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 
@@ -164,7 +163,7 @@ func TestGetMessagesRequest_Execute(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBuffer(response)),
+			Body:       io.NopCloser(bytes.NewBuffer(response)),
 		}, nil
 	})
 

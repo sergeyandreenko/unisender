@@ -2,7 +2,6 @@ package api_test
 
 import (
 	"bytes"
-	"io/ioutil"
 	"net/http"
 	"testing"
 
@@ -87,7 +86,7 @@ func TestRequest_Execute_WrongJson(t *testing.T) {
 	c := newClient(func(req *http.Request) (res *http.Response, err error) {
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBufferString(`{"result":{`)),
+			Body:       io.NopCloser(bytes.NewBufferString(`{"result":{`)),
 		}, nil
 	})
 
@@ -114,7 +113,7 @@ func TestRequest_Execute_Ok(t *testing.T) {
 
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(bytes.NewBufferString(`{"result":{"foo":"bar"}}`)),
+			Body:       io.NopCloser(bytes.NewBufferString(`{"result":{"foo":"bar"}}`)),
 		}, nil
 	})
 
