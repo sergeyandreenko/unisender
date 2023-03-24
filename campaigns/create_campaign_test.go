@@ -3,6 +3,7 @@ package campaigns_test
 import (
 	"bytes"
 	"encoding/json"
+	"io"
 	"math"
 	"net/http"
 	"reflect"

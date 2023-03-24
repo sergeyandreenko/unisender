@@ -2,6 +2,7 @@ package api_test
 
 import (
 	"bytes"
+	"io"
 	"net/http"
 	"testing"
 

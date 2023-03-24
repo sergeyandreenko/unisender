@@ -25,7 +25,7 @@ func TestSendEmailRequest_SenderName(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -61,7 +61,7 @@ func TestSendEmailRequest_SenderEmail(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -97,7 +97,7 @@ func TestSendEmailRequest_Subject(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -133,7 +133,7 @@ func TestSendEmailRequest_Body(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -169,7 +169,7 @@ func TestSendEmailRequest_ListID(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -206,7 +206,7 @@ func TestSendEmailRequest_Attachment(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -242,7 +242,7 @@ func TestSendEmailRequest_LangDA(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -278,7 +278,7 @@ func TestSendEmailRequest_LangDE(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -314,7 +314,7 @@ func TestSendEmailRequest_LangES(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -350,7 +350,7 @@ func TestSendEmailRequest_LangFR(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -386,7 +386,7 @@ func TestSendEmailRequest_LangNL(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -422,7 +422,7 @@ func TestSendEmailRequest_LangPL(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -458,7 +458,7 @@ func TestSendEmailRequest_LangPT(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -494,7 +494,7 @@ func TestSendEmailRequest_LangTR(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -530,7 +530,7 @@ func TestSendEmailRequest_TrackRead(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -566,7 +566,7 @@ func TestSendEmailRequest_TrackLinks(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -602,7 +602,7 @@ func TestSendEmailRequest_CC(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -638,7 +638,7 @@ func TestSendEmailRequest_WrapTypeSkip(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -674,7 +674,7 @@ func TestSendEmailRequest_WrapTypeLeft(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -710,7 +710,7 @@ func TestSendEmailRequest_WrapTypeRight(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -746,7 +746,7 @@ func TestSendEmailRequest_WrapTypeCenter(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -782,7 +782,7 @@ func TestSendEmailRequest_ImagesAsAttachments(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -818,7 +818,7 @@ func TestSendEmailRequest_ImagesAsOnlyLinks(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -854,7 +854,7 @@ func TestSendEmailRequest_ImagesAsUserDefault(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -890,7 +890,7 @@ func TestSendEmailRequest_RefKey(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -927,7 +927,7 @@ func TestSendEmailRequest_MetaData(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: test.RandomInt64(9999, 999999),
+				EmailID: test.RandomString(9999, 999999),
 			},
 		}
 
@@ -968,7 +968,7 @@ func TestSendEmailRequest_Execute(t *testing.T) {
 
 		result := api.Response{
 			Result: &messages.SendEmailResult{
-				EmailID: expectedResult,
+				EmailID: strconv.FormatInt(expectedResult, 10),
 			},
 		}
 

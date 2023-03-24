@@ -3,6 +3,7 @@ package common_test
 import (
 	"bytes"
 	"encoding/json"
+	"io"
 	"net/http"
 	"reflect"
 	"testing"

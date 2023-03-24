@@ -3,6 +3,7 @@ package contacts_test
 import (
 	"bytes"
 	"encoding/json"
+	"io"
 	"net/http"
 	"reflect"
 	"strconv"

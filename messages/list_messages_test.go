@@ -3,6 +3,7 @@ package messages_test
 import (
 	"bytes"
 	"encoding/json"
+	"io"
 	"net/http"
 	"reflect"
 	"strconv"
