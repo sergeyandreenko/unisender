@@ -14,7 +14,7 @@ import (
 )
 
 // LanguageDefault default API response language.
-const LanguageDefault = "en"
+const LanguageDefault = "ru"
 
 // UniSender API client struct.
 type UniSender struct {
@@ -688,7 +688,6 @@ func (u *UniSender) request() *api.Request {
 	return api.NewRequest(u.client, u.language).
 		SetLogger(u.logger).
 		Add("format", "json").
-		Add("lang", u.language).
 		Add("api_key", u.apiKey)
 }
 
