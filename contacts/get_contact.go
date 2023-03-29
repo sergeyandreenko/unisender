@@ -2,26 +2,26 @@ package contacts
 
 import (
 	"github.com/sergeyandreenko/unisender/api"
-	"time"
+	"github.com/sergeyandreenko/unisender/common"
 )
 
 // GetContactResultList list info, contact subscribed.
 type GetContactResultList struct {
-	ID      int64     `json:"id"`
-	Title   string    `json:"title"`
-	AddedAt time.Time `json:"added_at,omitempty"`
+	ID      int64             `json:"id"`
+	Title   string            `json:"title"`
+	AddedAt common.CustomTime `json:"added_at,omitempty"`
 }
 
 // GetContactResultEmail contact email info.
 type GetContactResultEmail struct {
 	Email        string                 `json:"email"`
-	AddedAt      time.Time              `json:"added_at"`
+	AddedAt      common.CustomTime      `json:"added_at"`
 	Status       string                 `json:"status"`
 	Availability string                 `json:"availability"`
-	LastSend     time.Time              `json:"last_send_datetime,omitempty"`
-	LastDelivery time.Time              `json:"last_delivery_datetime,omitempty"`
-	LastRead     time.Time              `json:"last_read_datetime,omitempty"`
-	LastClick    time.Time              `json:"last_click_datetime,omitempty"`
+	LastSend     common.CustomTime      `json:"last_send_datetime,omitempty"`
+	LastDelivery common.CustomTime      `json:"last_delivery_datetime,omitempty"`
+	LastRead     common.CustomTime      `json:"last_read_datetime,omitempty"`
+	LastClick    common.CustomTime      `json:"last_click_datetime,omitempty"`
 	Rating       float64                `json:"rating,omitempty"`
 	Lists        []GetContactResultList `json:"lists,omitempty"`
 	Fields       map[string]string      `json:"fields,omitempty"`
