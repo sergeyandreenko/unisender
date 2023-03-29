@@ -19,8 +19,6 @@ import (
 
 const ctLayout = "2006-01-02 15:04:05"
 
-var nilTime = (time.Time{}).Unix()
-
 type CustomTime struct {
 	time.Time
 }
@@ -35,13 +33,13 @@ func (ct *CustomTime) UnmarshalJSON(b []byte) (err error) {
 	return
 }
 
-func (ct *CustomTime) MarshalJSON() ([]byte, error) {
-	if ct.Time.Unix() == nilTime {
+func (ct CustomTime) MarshalJSON() ([]byte, error) {
+	if ct.Time.IsZero() {
 		return []byte("null"), nil
 	}
 	return []byte(fmt.Sprintf("\"%s\"", ct.Time.Format(ctLayout))), nil
 }
 
 func (ct *CustomTime) IsSet() bool {
-	return ct.Unix() != nilTime
+	return ct.Time.IsZero()
 }

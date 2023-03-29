@@ -7,29 +7,30 @@ import (
 
 // GetContactResultList list info, contact subscribed.
 type GetContactResultList struct {
-	ID      int64             `json:"id"`
-	Title   string            `json:"title"`
-	AddedAt common.CustomTime `json:"added_at,omitempty"`
+	ID      int64              `json:"id"`
+	Status  string             `json:"status"`
+	AddedAt *common.CustomTime `json:"added_at,omitempty"`
 }
 
 // GetContactResultEmail contact email info.
 type GetContactResultEmail struct {
-	Email        string                 `json:"email"`
-	AddedAt      common.CustomTime      `json:"added_at"`
-	Status       string                 `json:"status"`
-	Availability string                 `json:"availability"`
-	LastSend     common.CustomTime      `json:"last_send_datetime,omitempty"`
-	LastDelivery common.CustomTime      `json:"last_delivery_datetime,omitempty"`
-	LastRead     common.CustomTime      `json:"last_read_datetime,omitempty"`
-	LastClick    common.CustomTime      `json:"last_click_datetime,omitempty"`
-	Rating       float64                `json:"rating,omitempty"`
-	Lists        []GetContactResultList `json:"lists,omitempty"`
-	Fields       map[string]string      `json:"fields,omitempty"`
+	Email        string             `json:"email"`
+	AddedAt      *common.CustomTime `json:"added_at"`
+	Status       string             `json:"status"`
+	Availability string             `json:"availability"`
+	LastSend     *common.CustomTime `json:"last_send_datetime,omitempty"`
+	LastDelivery *common.CustomTime `json:"last_delivery_datetime,omitempty"`
+	LastRead     *common.CustomTime `json:"last_read_datetime,omitempty"`
+	LastClick    *common.CustomTime `json:"last_click_datetime,omitempty"`
+	Rating       float64            `json:"rating,omitempty"`
+	Fields       map[string]string  `json:"fields,omitempty"`
 }
 
 // GetContactResult contact struct.
 type GetContactResult struct {
-	Email GetContactResultEmail `json:"email"`
+	Email  GetContactResultEmail  `json:"email"`
+	Lists  []GetContactResultList `json:"lists,omitempty"`
+	Fields map[string]interface{} `jaon:"fields,omitempty"`
 }
 
 // GetContactRequest request to getting information about a contact (one contact only).
